@@ -3,7 +3,7 @@
 This repo contains `R` scripts to analyze the links between depression and functional dependence using the [SHARE](http://www.share-project.org/) panel data survey.
 
 ## Data
-The scripts expect CSV files that are subsequently imported by `R`.
+The scripts expect CSV files that are subsequently imported by `R`. We cannot redistribute data files as per the SHARE project’s [conditions of use](http://www.share-project.org/data-access/share-conditions-of-use.html).
 
 ## Necessary Packages
 The scripts assume/require the following packages to be installed in `R`:
