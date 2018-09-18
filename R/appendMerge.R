@@ -70,3 +70,6 @@ for (i in c(2, 4:6)) {
 
 ### Now merge in the time constant information from SHARELife
 shareAll <- merge(shareAll, sharew3)
+
+### And save the new data frame
+save(shareAll, file = ("../data/shareAll.RData"))
