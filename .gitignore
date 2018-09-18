@@ -1,0 +1,7 @@
+data/*.RData
+data_raw/*.csv*
+data_raw/*.dta
+\#*
+.\#*
+._*
+*\~
