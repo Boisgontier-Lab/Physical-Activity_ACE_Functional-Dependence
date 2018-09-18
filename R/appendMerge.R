@@ -42,9 +42,6 @@ AppendDFs <- function(df1 = NULL, df2 = NULL) {
     for (var in fixFactors) {
         df1[, var] <- factor(df1[, var])
         df2[, var] <- factor(df2[, var])
-
-        levels(df1[, var]) <- c(levels(df1[, var]), levels(df2[, var]))
-        levels(df2[, var]) <- c(levels(df1[, var]), levels(df2[, var]))
     }        
 
     ## Check which variables are not in the first data frame
@@ -69,7 +66,7 @@ for (i in c(2, 4:6)) {
 }
 
 ### Now merge in the time constant information from SHARELife
-shareAll <- merge(shareAll, sharew3, no.dups = FALSE, all = TRUE)
+shareAll <- merge(shareAll, sharew3, all = TRUE, by = "mergeid")
 
 ### And save the new data frame
 save(shareAll, file = ("../data/shareAll.RData"))
