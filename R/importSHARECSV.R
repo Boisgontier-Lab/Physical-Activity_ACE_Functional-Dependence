@@ -1,6 +1,6 @@
 ### If the CSV files were generated using Stata, then there is nothing to change
 
-### If the CSV files were generated using SPSS the fileencoding option
+### If the CSV files were generated using SPSS the fileEncoding option
 ### of read.csv should be set to "UTF-8-BOM"
 
 ### It is assumed that these files are located in the ”data_raw” directory
@@ -10,6 +10,7 @@ rawList <- list.files(path = "../data_raw", pattern = "\\.csv")
 for (file in rawList) {
 
     dfName <- gsub("\\.csv.*", "", file)
+    dfName <- gsub("rel6-1-1_", "", dfName)
 
     assign(dfName,
            read.csv(file = paste("../data_raw", file, sep = "/"),
