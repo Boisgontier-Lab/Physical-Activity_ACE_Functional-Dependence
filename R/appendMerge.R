@@ -70,3 +70,5 @@ shareAll <- merge(shareAll, sharew3, all = TRUE, by = "mergeid")
 
 ### And save the new data frame
 save(shareAll, file = ("../data/shareAll.RData"))
+
+rm(toLoad, file, AddWave, AppendDFs)
