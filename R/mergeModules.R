@@ -4,7 +4,7 @@
 
 moduleList <- list("normal" =
                        c("cv_r", "ph", "gv_health", "gv_isced", "dn", "br",
-                         "co"),
+                         "co", "cf"),
                    "SHARELife" = c("cv_r", "cs", "re", "wq", "gl", "hs"))
 
 ### Load the required modules that are saved as RData files for
