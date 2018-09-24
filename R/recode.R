@@ -26,3 +26,6 @@ source(file = "socioDemo.R")
 
 ### Generate childhood socioeconomic condition variables
 source(file = "childSEC.R")
+
+### Generate variables related to cognition
+source(file = "cognition.R")
