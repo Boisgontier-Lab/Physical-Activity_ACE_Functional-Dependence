@@ -60,3 +60,13 @@ factorToNumeric <- function(x = NULL) {
         return(x)
     }
 }
+
+### Function that gives out computed means per individual with each value being
+### repeated the same amount of times as the length of the argument
+RepMean <- function(x = NULL) {
+    if (all(is.na(x))) {
+        return(rep(NA, length(x)))
+    } else {
+        return(rep(mean(x, na.rm = TRUE), length(x)))
+    }
+}
