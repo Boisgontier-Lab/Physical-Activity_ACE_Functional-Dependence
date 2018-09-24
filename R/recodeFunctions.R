@@ -44,8 +44,13 @@ GetMode <- function(x = NULL) {
         return(NA)
     } else {
         ux <- unique(x)
-        res <- ux[which.max(tabulate(match(x, ux)))]
-        return(res)
+
+        if (length(ux) == 1) {
+            return(ux)
+        } else {
+            res <- ux[which.max(tabulate(match(x, ux)))]
+            return(res)
+        }
     }
 }
 
