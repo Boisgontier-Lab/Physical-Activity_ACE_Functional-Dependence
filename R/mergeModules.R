@@ -5,9 +5,9 @@
 moduleList <- list("normal" =
                        c("cv_r", "ph", "gv_health", "gv_isced", "dn", "br",
                          "co", "cf"),
-                   "SHARELife" = c("cv_r", "cs", "re", "wq", "gl", "hs"))
+                   "SHARELife" = c("ac", "cv_r", "cs", "re", "wq", "gl", "hs"))
 
-### Load the required modules that are saved as RData files for
+### Load the required modules that are saved as RData files for each wave
 for (i in c(1:6)) {
     if (i != 3) {
         dfFileNames <- paste0("sharew", i, "_", moduleList[["normal"]], ".RData")
