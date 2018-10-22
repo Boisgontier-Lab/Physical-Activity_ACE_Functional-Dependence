@@ -1,6 +1,6 @@
 #### Some simple and stupid functions to help with recoding
 
-### Load required library just in case
+### Load required library just in case it hasn't already been loaded
 library("plyr", character.only = TRUE)
 
 ### Set default missing values to NA
