@@ -48,12 +48,12 @@ GetMode <- function(x = NULL) {
         if (length(ux) == 1) {
             return(ux)
         } else {
-            res <- ux[which.max(tabulate(match(x, ux)))]
+            res <- ux[which.max(tabulate(
+                match(x, ux, incomparables = NA)))]
             return(res)
         }
     }
 }
-
 
 ### Convert a factor to a numeric vector (approx.)
 factorToNumeric <- function(x = NULL) {
