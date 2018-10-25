@@ -93,3 +93,15 @@ tapplySaferUnlist <- function(tapplyList = NULL, dfIndex = NULL) {
     res
 }
 
+### A few useful functions as some of the variables used to construct the ACE
+### and HACE indices are age-dependent
+
+IsEventAtAge <- function(x = NULL, birthVar = NULL,
+                         ub = NULL, lb = 0) {
+    ageAtEvent <- x - birthVar
+    ret <- rep(NA, length(x))
+    ret[which(ageAtEvent >= lb & ageAtEvent <= ub)] <- TRUE
+    ret[which(ageAtEvent < lb | ageAtEvent > ub)] <- FALSE
+
+    ret
+}
