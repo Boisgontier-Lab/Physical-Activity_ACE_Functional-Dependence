@@ -75,3 +75,21 @@ RepMean <- function(x = NULL) {
         return(rep(mean(x, na.rm = TRUE), length(x)))
     }
 }
+
+### Function to make sure tapply results list is in the same order as the INDEX
+### column -- mergeid -- in the data frame
+tapplySaferUnlist <- function(tapplyList = NULL, dfIndex = NULL) {
+    stopifnot(is.list(tapplyList))
+    dfIndex <- dfIndex
+    res <- tapplyList
+    tapplyListNames <- names(tapplyList)
+
+    ## For each level of index vector -- that is each name in the tapply list --
+    ## find the indices of that level in the data frame
+    levelPosList <- match(dfIndex, tapplyListNames)
+
+    res <- unlist(tapplyList[levelPosList])
+
+    res
+}
+
