@@ -49,3 +49,6 @@ source(file = "ADL.R")
 
 ### Correct coding of IADL
 source(file = "IADL.R")
+
+save(shareAllSubsetRecode,
+     file = "../data/shareAllSubsetRecode.RData")
