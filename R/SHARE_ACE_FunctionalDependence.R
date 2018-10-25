@@ -59,5 +59,13 @@ if (useFuture) {
 ### Now we merge the individual modules for each wave
 source(file ="mergeModules.R")
 
-### Now we append the regular waves and merge in the SHARELife information
+### Then we append the regular waves and merge in the SHARELife information
 source(file = "appendMerge.R")
+
+### Get only the variables we may actually need for the analysis
+source(file = "subsetVars.R")
+
+### Recode and generate new variables
+source(file = "recode.R",
+       echo = TRUE)
+
