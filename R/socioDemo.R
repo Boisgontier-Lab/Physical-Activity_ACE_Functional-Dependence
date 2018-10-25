@@ -25,13 +25,19 @@ shareAllSubsetRecode$birthCo <-
                    "after 1955"))
 
 ### Gender
+## Fill in information from wave 3
+shareAllSubsetRecode[which(is.na(shareAllSubsetRecode$dn042_)), "dn042_"] <-
+    shareAllSubsetRecode[which(is.na(shareAllSubsetRecode$dn042_)), "gender.w3"]
+
 ## Get the mode over the entire survey for each individual
 shareAllSubsetRecode$genderMode <-
-    unlist(tapply(X = as.character(shareAllSubsetRecode$gender),
-                  INDEX = shareAllSubsetRecode$mergeid,
-                  FUN = function(x) {
-                      rep(GetMode(x), length(x))
-                  }))
+    tapplySaferUnlist(tapply(X = as.character(shareAllSubsetRecode$gender),
+                             INDEX = shareAllSubsetRecode$mergeid,
+                             FUN = function(x) {
+                                 GetMode(x)
+                             },
+                             simplify = FALSE),
+                      shareAllSubsetRecode$mergeid)
 
 shareAllSubsetRecode$genderMode <- factor(shareAllSubsetRecode$genderMode)
 
@@ -66,19 +72,21 @@ levels(shareAllSubsetRecode$edu3CatMax) <-
                       "ISCED-97 code 6"))
 
 shareAllSubsetRecode$edu3CatMax <-
-    unlist(tapply(X = as.character(shareAllSubsetRecode$edu3CatMax),
+    tapplySaferUnlist(tapply(X = as.character(shareAllSubsetRecode$edu3CatMax),
            INDEX = shareAllSubsetRecode$mergeid,
            FUN = function(x) {
                x <- factor(x, levels = c("primary", "secondary", "tertiary"),
                            ordered = TRUE)
                if(all(is.na(x))) {
-                   ret <- rep(NA, length(x))
+                   ret <- NA
                } else {
-                   ret <- rep(max(x, na.rm = TRUE), length(x))
+                   ret <- max(x, na.rm = TRUE)
                }
 
                as.character(ret)
-           }))
+           },
+           simplify = FALSE),
+           shareAllSubsetRecode$mergeid)
 
 shareAllSubsetRecode$edu3CatMax <-
     factor(shareAllSubsetRecode$edu3CatMax,
@@ -86,8 +94,10 @@ shareAllSubsetRecode$edu3CatMax <-
 
 ### Mode of marital status
 shareAllSubsetRecode$MaritalStatMode <-
-    unlist(tapply(X = as.character(shareAllSubsetRecode$dn014_),
+    tapplySaferUnlist(tapply(X = as.character(shareAllSubsetRecode$dn014_),
            INDEX = shareAllSubsetRecode$mergeid,
            FUN = function(x) {
-               rep(GetMode(x), length(x))
-           }))
+               GetMode(x)
+           },
+           simplify = FALSE),
+           shareAllSubsetRecode$mergeid)
