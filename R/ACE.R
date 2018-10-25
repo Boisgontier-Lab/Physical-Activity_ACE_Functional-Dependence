@@ -99,3 +99,21 @@ shareAllSubsetRecode$ACEScore15 <-
                                    "parentsDrinkingProb",
                                    "parentsMentalProb")],
             na.rm = TRUE)
+
+### Assign NA to participants with NA on all indicators
+ACEAllNA <- which(apply(shareAllSubsetRecode[,
+                                             c("deathParents15",
+                                               "hunger15",
+                                               "propertyAway15",
+                                               "livedInCare",
+                                               "parentsDrinkingProb",
+                                               "parentsMentalProb")],
+                        1,
+                        FUN = function(x) all(is.na(x))))
+shareAllSubsetRecode[ACEAllNA, "ACEScore15"] <- NA
+rm(ACEAllNA)
+
+### Make 3-category factor
+shareAllSubsetRecode$ACEScore15Cat3 <- factor(shareAllSubsetRecode$ACEScore15,
+                                              levels = c(0:5),
+                                              labels = c(0, 1, rep(2, 4)))
