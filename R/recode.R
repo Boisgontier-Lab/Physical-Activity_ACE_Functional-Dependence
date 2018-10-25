@@ -18,6 +18,11 @@ names(shareAllSubsetRecode) <- gsub("\\.x", "",
 names(shareAllSubsetRecode) <- gsub("\\.y", ".w3",
                                     names(shareAllSubsetRecode))
 
+### Make sure the data frame is sorted by mergeid and wave
+shareAllSubsetRecode <-
+    shareAllSubsetRecode[order(shareAllSubsetRecode$mergeid,
+                               shareAllSubsetRecode$wave), ]
+
 ### Generate dropout indicator
 source(file = "dropout.R")
 
@@ -27,5 +32,20 @@ source(file = "socioDemo.R")
 ### Generate childhood socioeconomic condition variables
 source(file = "childSEC.R")
 
-### Generate variables related to cognition
-source(file = "cognition.R")
+### Generate variables related to ACE
+source(file = "ACE.R")
+
+### Generate variables related to HACE
+source(file = "HACE.R")
+
+### Generate physical activity variables
+source(file = "physAct.R")
+
+### Correct coding of EURO-D depression scale
+source(file = "depression.R")
+
+### Correct coding of ADL
+source(file = "ADL.R")
+
+### Correct coding of IADL
+source(file = "IADL.R")
