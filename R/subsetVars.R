@@ -15,7 +15,7 @@ varsToKeep <- c("mergeid", "country", "gender", "wave", "age_int", "sl_cs009_",
 "ph049d11", "ph049d12", "ph049d13", "bmi", "sl_hs006_", "sl_hs007_",
 "sl_hs008d2", "sl_hs008d3", "sl_hs008d7", "sl_hs009d1", "sl_hs009d2",
 "sl_hs009d3", "sl_hs009d4", "sl_hs009d5", "sl_hs009d6", "sl_hs009d7",
-"sl_hs009d8", "sl_hs009d9", "sl_hs053_")
+"sl_hs009d8", "sl_hs009d9", "sl_hs053_", "dn042_)
 
 ### Make it into a grep-compatible list
 varsToKeepGrep <- paste0("^", varsToKeep, collapse = "|")
