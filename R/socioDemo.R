@@ -2,6 +2,38 @@
 
 ### Make age a numeric variable
 shareAllSubsetRecode$age_int <- factorToNumeric(shareAllSubsetRecode$age_int)
+shareAllSubsetRecode$age_int.w3 <- factorToNumeric(shareAllSubsetRecode$age_int.w3)
+
+### Get value of baseline/first age measurement
+shareAllSubsetRecode$ageBase <-
+    tapplySaferUnlist(tapply(shareAllSubsetRecode$age_int,
+                             shareAllSubsetRecode$mergeid,
+                             ## We actually want to find 1st non-NA
+                             ## https://stackoverflow.com/a/6808762
+                             function(x) {
+                                 if (all(is.na(x))) {
+                                     NA
+                                 } else {
+                                     x[min(which(!is.na(x)))]
+                                 }
+                             }, simplify = FALSE),
+                      shareAllSubsetRecode$mergeid)
+
+### If this is NA, substitute using information from wave 3 as baseline
+
+## Baseline age is NA
+shareAllSubsetRecode[which(is.na(shareAllSubsetRecode$ageBase)), "ageBase"] <-
+    shareAllSubsetRecode[which(is.na(shareAllSubsetRecode$ageBase)),
+                         "age_int.w3"]
+
+### Also replace info with age from wave 3 if age at wave 3 is lower
+shareAllSubsetRecode[which(shareAllSubsetRecode$age_int.w3 <
+                           shareAllSubsetRecode$ageBase),
+                     "ageBase"] <-
+    shareAllSubsetRecode[which(shareAllSubsetRecode$age_int.w3 <
+                           shareAllSubsetRecode$ageBase),
+                     "age_int.w3"]
+
 
 ### Birth cohorts
 
