@@ -31,7 +31,7 @@ shareAllSubsetRecode[which(is.na(shareAllSubsetRecode$dn042_)), "dn042_"] <-
 
 ## Get the mode over the entire survey for each individual
 shareAllSubsetRecode$genderMode <-
-    tapplySaferUnlist(tapply(X = as.character(shareAllSubsetRecode$gender),
+    tapplySaferUnlist(tapply(X = as.character(shareAllSubsetRecode$dn042_),
                              INDEX = shareAllSubsetRecode$mergeid,
                              FUN = function(x) {
                                  GetMode(x)
