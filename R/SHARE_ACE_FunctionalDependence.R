@@ -39,9 +39,12 @@ if (useOptional) {
     library("future")
 }
 
-### Choose whether or not to use the future package’s parallel
-### processsing options; by default set to TRUE
-useFuture <- TRUE
+useFuture <- FALSE
+
+### Automatically use the future package if loaded
+if ("future" %in% .packages()) {
+    useFuture <- TRUE
+}
 
 if (useFuture) {
     plan(multiprocess)
