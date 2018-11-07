@@ -67,7 +67,7 @@ shareAllSubsetRecode$childSEC <-
     shareAllSubsetRecode$lowHousingQuality
 
 shareAllSubsetRecode$childSECFact <-
-    factor(shareAllSubsetRecode$childSE,
+    factor(shareAllSubsetRecode$childSEC,
            levels = c(4:0),
            labels = c("Most disadvantaged",
                       "Disadvantaged",
