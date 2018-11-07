@@ -72,3 +72,5 @@ source(file = "subsetVars.R")
 source(file = "recode.R",
        echo = TRUE)
 
+### Now actually do the analysis
+source(file = "analysis.R")
