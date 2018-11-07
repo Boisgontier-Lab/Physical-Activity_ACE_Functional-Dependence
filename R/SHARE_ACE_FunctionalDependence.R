@@ -2,7 +2,7 @@
 
 ### Check if necessary packages are installed
 
-useOptional <- FALSE
+useOptional <- TRUE
 
 if (useOptional) {
     pkgList <- c("plyr", "lme4", "lmerTest", "ggplot2", "future")
