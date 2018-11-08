@@ -116,16 +116,13 @@ indepVarsList <- c(indepVarsList,
                    list(
                        m4 = gsub("(ACEScore15Cat3)",
                                  "\\1*physActBinMean",
-                                 indepVarsList[["m1"]],
-                                 fixed = TRUE),
+                                 indepVarsList[["m1"]]),
                        m5 = gsub("(ACEScore15Cat3)",
                                  "\\1*physActBinMean",
-                                 indepVarsList[["m2"]],
-                                 fixed = TRUE),
+                                 indepVarsList[["m2"]]),
                        m6 = gsub("(ACEScore15Cat3)",
                                  "\\1*physActBinMean",
-                                 indepVarsList[["m3"]],
-                                 fixed = TRUE),
+                                 indepVarsList[["m3"]]),
                        full = c("waveCentW1",
                                 "waveCentW1Square",
                                 "ageBaseCent",
@@ -208,7 +205,7 @@ for (dep in c("adl", "iadl")) {
                                 indepVars = indepVarsList[["m6"]],
                                 idVar = "mergeid",
                                 randSlopeVars = c("waveCentW1"))))
-}    
+}
 
 ### Now we actually run the models
 if (useFuture) {
