@@ -66,3 +66,7 @@ shareAllSubsetRecode$HACEScore15 <-
                                      "diseaseChildScore",
                                      "physicalInjury15")],
             na.rm = TRUE)
+
+### Binary version
+shareAllSubsetRecode$HACEScore15Bin <- shareAllSubsetRecode$HACEScore15
+shareAllSubsetRecode$HACEScore15Bin[shareAllSubsetRecode$HACEScore15Bin >= 1] <- 1
