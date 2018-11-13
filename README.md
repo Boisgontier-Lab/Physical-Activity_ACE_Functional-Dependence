@@ -1,6 +1,6 @@
 # Functional Dependence and Depression
 
-This repo contains `R` scripts to analyze the links between depression and functional dependence using the [SHARE](http://www.share-project.org/) panel data survey.
+This repo contains `R` scripts to analyze the links between adverse childhood experiences (ACEs), depression, functional dependence, and physical activity, using the [SHARE](http://www.share-project.org/) panel data survey.
 
 ## Data
 The scripts expect CSV files that are subsequently imported by `R`.
