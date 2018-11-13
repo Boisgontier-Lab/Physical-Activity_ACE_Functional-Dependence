@@ -1,4 +1,4 @@
-# Functional Dependence and Depression
+# ACEs, Depression, Functional Dependence, and Physical Activity
 
 This repo contains `R` scripts to analyze the links between adverse childhood experiences (ACEs), depression, functional dependence, and physical activity, using the [SHARE](http://www.share-project.org/) panel data survey.
 
