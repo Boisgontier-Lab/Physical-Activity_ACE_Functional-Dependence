@@ -10,7 +10,7 @@ rawList <- list.files(path = "../data_raw", pattern = "\\.csv")
 for (file in rawList) {
 
     dfName <- gsub("\\.csv.*", "", file)
-    dfName <- gsub("rel6-1-1_", "", dfName)
+    dfName <- gsub("rel[[:digit:]]+-[[:digit:]]+-[[:digit:]]+_", "", dfName)
 
     assign(dfName,
            read.csv(file = paste("../data_raw", file, sep = "/"),
