@@ -1,10 +1,11 @@
-# Functional Dependence and Depression
+# Adverse childhood experiences, Depression, Functional dependence, and Physical activity
 
-This repo contains `R` scripts to analyze the links between depression and functional dependence using the [SHARE](http://www.share-project.org/) panel data survey.
+This repo contains `R` scripts to analyze the links between adverse childhood experiences (ACEs), depression, functional dependence, and physical activity, using the [SHARE](http://www.share-project.org/) panel data survey.
 
 ## Data
 The scripts expect CSV files that are subsequently imported by `R`.
 We cannot redistribute data files as per the SHARE project’s [conditions of use](http://www.share-project.org/data-access/share-conditions-of-use.html).
+However, the [data](http://www.share-project.org/data-access.html) are available [free of charge](http://www.share-project.org/data-access/share-conditions-of-use.html).
 The SHARE project itself does not provide CSV files.
 These need to be exported either from Stata or SPSS.
 By default both will export CSV files with UTF-8 encoding but SPSS includes a byte order mark while Stata does not.
