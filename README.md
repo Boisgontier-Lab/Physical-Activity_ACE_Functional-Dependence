@@ -18,5 +18,4 @@ The scripts assume/require the following packages to be installed in `R`:
 - [`lmerTest`](https://github.com/runehaubo/lmerTestR)
 
 ## Optional packages
-- [`ggplot2`](https://ggplot2.tidyverse.org/) if plots are required
 - [`future`](https://github.com/HenrikBengtsson/future) for easier multicore/multiprocess evaluation
